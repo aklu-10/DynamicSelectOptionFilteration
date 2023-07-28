@@ -110,8 +110,6 @@ function App() {
   const addNewTech = () => {
     if (Object.keys(allTech).length >= technologies.length) return;
 
-    let copyAllTech = { ...allTech };
-
     let base = {
       technologies: [],
       selected: {}
