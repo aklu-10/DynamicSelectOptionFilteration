@@ -1,0 +1,74 @@
+Dropdowns - [1,2,3,4,5]
+state - []
+
+
+Flow ->
+	
+	Case 1 : Add
+
+		 _____
+		[__1__| 
+		
+		Dropdown - [4,5]
+		State - [1]
+		Final State - [1,2,3]
+		 _____
+		[__2__| 
+		
+		Dropdown - [4,5]
+		State - [1, 2]
+		Final State - [1,2,3]
+		 _____
+		[__3__| 
+		
+		Dropdown - [4,5]
+		State - [1, 2, 3]
+		Final State - [1,2,3]
+	
+	Case 2 : Update
+
+		 _____												 _____
+		[__1__| 											[__1__|
+														
+		Dropdown - [4,5] -------------------------------        ---------------------------------->	Dropdown - [2,4] 
+		State - [1]			 		\      /					State - [1]
+		Final State - [1,2,3]		  		 \    /						Final State - [1,5,3]
+								  \  /
+		 _____						 _____						 _____
+		[__2__| 					[__5__|						[__5__|		
+			
+		Dropdown - [4,5] ---------------------------->	Dropdown - [4,2]  ------------------------>	Dropdown - [2,4] 
+		State - [1, 2]					State - [1,5]					State - [1,5]
+		Final State - [1,2,3]				Final State - [1,5,3]				Final State - [1,5,3]
+		 _____						  /  \						 _____	
+		[__3__| 					 /    \						[__3__| 
+								/      \
+		Dropdown - [4,5] -------------------------------        ----------------------------------->	Dropdown - [2,4]
+		State - [1, 2, 3]										State - [1, 5, 3]
+		Final State - [1,2,3]										Final State - [1,5,3]			
+	
+	
+	Case 3 : Delete
+
+		 _____												 _____
+		[__1__| 											[__1__|
+														
+		Dropdown - [4,5]			        	---------------------------------->	Dropdown - [2,4,5] 
+		State - [1]			 		       /					State - [1]
+		Final State - [1,2,3]		  		      /						Final State - [1,3]
+								     /
+		 _____						    						 _____
+		[__2__| 											[__3__|		
+			
+		Dropdown - [4,5] ---------------------------->	 DELETED   ------------------------------->	Dropdown - [2,4,5] 
+		State - [1, 2]							        			State - [1,3]
+		Final State - [1,2,3]							  			Final State - [1,3]
+		 _____						    							
+		[__3__| 					     						 
+								      
+		Dropdown - [4,5] 				        
+		State - [1, 2, 3]										
+		Final State - [1,2,3]													
+	
+	
+	
